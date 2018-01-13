@@ -111,14 +111,14 @@ class wikicrawler_2(scrapy.Spider):
             label.append(labels.xpath("string(.)").extract_first())
 
         item = entryItem()
-        item["url"] = url
-        item["name"] = name
-        item["summary"] = summary
-        item["info"] = info
-        item["content"] = content
-        item["uptime"] = uptime
-        item["refer"] = refer
-        item["label"] = label
+        item["url"] = str(url)
+        item["name"] = str(name)
+        item["summary"] = re.sub(r'\\n', '', str(summary), count=0, flags=0)
+        item["info"] = re.sub(r'\\n', '', str(info), count=0, flags=0)
+        item["content"] = re.sub(r'\\n', '', str(content), count=0, flags=0)
+        item["uptime"] = str(uptime)
+        item["refer"] = re.sub(r'\\n', '', str(refer), count=0, flags=0)
+        item["label"] = str(label)
         yield item
 
 
