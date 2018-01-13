@@ -3,6 +3,7 @@ A simple crawler which is used to attain wiki entries.
 
 开始时Vicia遇到的错误是mysql提示句法错误，
  >Insert error: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '),'',{},'25 May 2015,23:48',(),('Bromeliaceae cultivar','Aechmea stubs'))' at line 1")
+ 
 其原因是不支持存储字典及列表或字符集不匹配，将其转换为str即可（也有转为utf-8编码的功能）
 顺便将里面看着碍眼的"\n"全删了233
 ```
